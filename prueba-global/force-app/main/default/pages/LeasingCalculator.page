@@ -1,0 +1,31 @@
+<apex:page standardController="Car__c">
+    <apex:form >
+    	<apex:pageBlock >
+            <apex:pageMessages />
+            <apex:pageBlockSection title="Leasing Calculator">
+            	<apex:inputField styleClass="price" value="{! Car__c.Price__c}"/>
+                <apex:inputField styleClass="tax" value="{! Car__c.Tax__c}" />
+                <apex:inputField styleClass="down-payment" value="{! Car__c.Down_Payment__c}"/>
+                <apex:inputField value="{!Car__c.Leasing__c}" styleClass="leasing" />
+                
+                <apex:commandButton styleClass="button" value="Operacion"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+            	<apex:commandButton action="{! save }" value="save"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    <script>
+        const price=document.getElementsByClassName("price")[0];
+        const tax=document.getElementsByClassName("tax")[0];
+        const downPayment=document.getElementsByClassName("down-payment")[0];
+    	const leasing=document.getElementsByClassName("leasing");
+    	const button=document.getElementsByClassName("button");
+    	button[0].addEventListener('click',(e)=>{
+            e.preventDefault();
+        	if(price.value && tax.value && downPayment.value){
+            	leasing[0].value=parseInt(((parseInt(price.value) + parseInt(tax.value))-parseInt(downPayment.value))/84);
+        	}
+        })
+    </script>
+</apex:page>

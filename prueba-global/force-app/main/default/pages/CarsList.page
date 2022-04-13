@@ -1,0 +1,25 @@
+<apex:page controller="controllerCars" >
+    <apex:pageBlock>
+        <apex:pageBlockSection  title="Cars List">
+            <apex:pageBlockTable style="width:90vw" value="{! cars}" var="car"> 
+                <!-- Name, Model_Year__c, Registration_Plate__c, Full_name__c, Price__c, Tax__c, Full_Price__c, Leasing__c, Down_Payment__c, Lead__r.Name -->
+                <apex:column>
+                    <apex:outputLink
+                        value="{! URLFOR($Action.Car__c.View, car.Id) }">
+                        View
+                    </apex:outputLink>
+                </apex:column>
+                <apex:column value="{!car.Name}"/>
+                <apex:column value="{!car.Model_Year__c}"/>
+                <apex:column value="{!car.Registration_Plate__c}"/>
+                <apex:column value="{!car.Full_name__c}"/>
+                <apex:column value="{!car.Price__c}"/>
+                <apex:column value="{!car.Tax__c}"/>
+                <apex:column value="{!car.Full_Price__c}"/>
+                <apex:column value="{!car.Leasing__c}"/>
+                <apex:column value="{!car.Down_Payment__c}"/>
+                <apex:column headerValue="Lead Name" value="{!car.Lead__r.Name}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>
