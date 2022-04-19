@@ -1,4 +1,4 @@
-public with sharing class controllerCars {
+public with sharing class ControllerCars {
     public static List<Car__c> getCars(){
         Car__c[] carsRecords= [
                 SELECT Name,

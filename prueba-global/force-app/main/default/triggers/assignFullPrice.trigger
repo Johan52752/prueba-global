@@ -7,7 +7,6 @@ trigger assignFullPrice on Car__c (after insert) {
         Integer taxCar= (Integer) car.Tax__c;
         car.Full_Price__c= priceCar + taxCar;
         carsToUpdate.add(car);
-        
     }
     update carsToUpdate;
 }

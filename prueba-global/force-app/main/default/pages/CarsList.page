@@ -1,4 +1,4 @@
-<apex:page controller="controllerCars" >
+<apex:page controller="ControllerCars" >
     <apex:pageBlock>
         <apex:pageBlockSection  title="Cars List">
             <apex:pageBlockTable style="width:90vw" value="{! cars}" var="car"> 
